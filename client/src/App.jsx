@@ -15,7 +15,7 @@ function App() {
   useEffect(()=>{
     (async function healthCheck() {
       try {
-        const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/healthz`);
+        const response = await fetch(`https://server-gdsc-session.onrender.com/healthz`);
         console.log(response.body)
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -38,7 +38,7 @@ function App() {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/translate`, {
+      const response = await fetch(`https://server-gdsc-session.onrender.com/translate`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json' // Specify the content type as JSON
