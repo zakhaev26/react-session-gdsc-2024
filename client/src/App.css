@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1f1f1f; /* Dark background color */
+  color: #eee; /* Light text color */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+  background-color: #333; /* Dark header background color */
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333; 
+  color: #eee;
+  font-size: 16px;
+  resize: none; 
+}
+
+.language-selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.language-label {
+  margin-right: 10px;
+}
+
+.language-select {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #444; 
+  color: #eee; 
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.language-select:focus {
+  outline: none;
+}
+
+.translate-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.translate-button:hover {
+  background-color: #45a049;
+}
+
+.output {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #333; 
+  color: #eee; 
+}
+
+.hint {
+  font-size: 14px;
+  color: #aaa;
+}
