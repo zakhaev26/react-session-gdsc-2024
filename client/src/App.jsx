@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css'; // Import your CSS file for styling
+import './App.css'; 
 import languages from './constants/languages';
 
 function App() {
@@ -9,13 +9,13 @@ function App() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [typedText, setTypedText] = useState('');
   const [serverHealth,setServerHealth] = useState('');
+  const [loading,setLoading] = useState('');
 
   // JUST FOR DEVS,NOT TO BE TAUGHT!
   useEffect(()=>{
-
     (async function healthCheck() {
       try {
-        const response = await fetch("http://127.0.0.1:3000/healthz");
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/healthz`);
         console.log(response.body)
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -30,6 +30,7 @@ function App() {
 
 
   async function translateOnClick() {
+    setLoading(prev => prev = "Translating...")
     console.log(selectedLanguage)
     const requestBody = {
       text: typedText,
@@ -37,7 +38,7 @@ function App() {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:3000/translate", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/translate`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json' // Specify the content type as JSON
@@ -51,8 +52,11 @@ function App() {
       const responseData = await response.json();
       console.log(responseData);
       setTranslatedText(prev => prev = responseData)
+      setLoading(prev => prev = "Translation Done!")
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
+      setLoading(prev => prev = "Failed Translation!")
+      
     }
   }
 
@@ -90,6 +94,9 @@ function App() {
 
         <div className="output">{translatedText}</div>
         <p className="hint">Hint: Click the 'Translate' button to see the translated text.</p>
+        <br />
+        <br />
+        <p>{loading}</p>
       </main>
 
       
