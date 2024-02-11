@@ -8,8 +8,8 @@ function App() {
   const [translatedText, setTranslatedText] = useState('Translated text will appear here...')
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [typedText, setTypedText] = useState('');
-  const [serverHealth,setServerHealth] = useState('');
-  const [loading,setLoading] = useState('Pinging Server...');
+  const [serverHealth,setServerHealth] = useState('Pinging Server...');
+  const [loading,setLoading] = useState('');
 
   // JUST FOR DEVS,NOT TO BE TAUGHT!
   useEffect(()=>{
