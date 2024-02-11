@@ -9,7 +9,7 @@ function App() {
   const [selectedLanguage, setSelectedLanguage] = useState('');
   const [typedText, setTypedText] = useState('');
   const [serverHealth,setServerHealth] = useState('');
-  const [loading,setLoading] = useState('');
+  const [loading,setLoading] = useState('Pinging Server...');
 
   // JUST FOR DEVS,NOT TO BE TAUGHT!
   useEffect(()=>{
